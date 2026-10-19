@@ -1,9 +1,23 @@
-﻿export default function Navbar() {
+﻿"use client";
+import { useEffect, useState } from "react";
+
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
+export default function Navbar() {
+  const [garderie, setGarderie] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API}/api/garderie`)
+      .then((r) => r.json())
+      .then(setGarderie)
+      .catch(() => setGarderie(null));
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg bg-warning-subtle sticky-top">
       <div className="container">
         <a className="navbar-brand d-flex align-items-center fw-bold" href="#">
-          <span className="fs-3 me-2">🌞</span> Les Petits Soleils
+          <span className="fs-3 me-2">🌞</span> {garderie?.nom ?? "Garderie"}
         </a>
         <button className="navbar-toggler" type="button"
           data-bs-toggle="collapse" data-bs-target="#menu">
