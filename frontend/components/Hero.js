@@ -1,6 +1,7 @@
 ﻿"use client";
 import { useEffect, useState } from "react";
 import { API } from "@/lib/api";
+import { ouvrirInscription } from "@/lib/inscription";
 
 export default function Hero() {
   const [garderie, setGarderie] = useState(null);
@@ -23,7 +24,7 @@ export default function Hero() {
             </h1>
             <p className="lead mb-4">{garderie?.description ?? ""}</p>
             <div className="d-flex flex-wrap gap-3 mb-4">
-              <a href="#contact" className="btn btn-sun btn-lg">Inscrire mon enfant</a>
+              <button className="btn btn-sun btn-lg" type="button" onClick={ouvrirInscription}>Inscrire mon enfant</button>
               <a href="#services" className="btn btn-ghost btn-lg">Nos services</a>
             </div>
             <div>

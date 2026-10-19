@@ -148,3 +148,11 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
 .footer-dark a { color: #ffd99a; text-decoration: none; }
 .footer-dark a:hover { text-decoration: underline; }
 .footer-dark .muted { color: #aab3c9; }
+
+/* Modale d'inscription */
+.modal-sun { border: 0; border-radius: 1.5rem; }
+.modal-sun .form-control, .modal-sun .form-select { border-radius: 0.8rem; padding: 0.6rem 0.9rem; }
+.modal-sun .form-control:focus, .modal-sun .form-select:focus {
+  border-color: var(--sun);
+  box-shadow: 0 0 0 0.25rem rgba(255, 159, 28, 0.25);
+}

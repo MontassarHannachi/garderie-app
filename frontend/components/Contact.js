@@ -1,9 +1,14 @@
 ﻿"use client";
 import { useEffect, useState } from "react";
 import { API } from "@/lib/api";
+import { ouvrirInscription } from "@/lib/inscription";
 
 export default function Contact() {
   const [g, setG] = useState(null);
+  const [annee, setAnnee] = useState(2026);
+  useEffect(() => {
+    setAnnee(new Date().getFullYear());
+  }, []);
 
   useEffect(() => {
     fetch(`${API}/api/garderie`)
@@ -29,12 +34,12 @@ export default function Contact() {
           <div className="col-md-4">
             <h5 className="mb-3">Horaires</h5>
             <p className="mb-4">🕒 {g?.horaires ?? "-"}</p>
-            <a href={`mailto:${g?.email ?? ""}`} className="btn btn-sun">Inscrire mon enfant</a>
+            <button className="btn btn-sun" type="button" onClick={ouvrirInscription}>Inscrire mon enfant</button>
           </div>
         </div>
         <hr className="my-4 border-secondary" />
         <p className="text-center muted mb-0">
-          © {new Date().getFullYear()} {g?.nom ?? "Garderie"} - Tous droits réservés
+          © {annee} {g?.nom ?? "Garderie"} - Tous droits réservés
         </p>
       </div>
     </footer>
