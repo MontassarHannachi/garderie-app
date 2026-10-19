@@ -6,7 +6,7 @@ import BootstrapClient from "./BootstrapClient";
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
 export const metadata = {
-  title: "Les Petits Soleils - Garderie d'enfants",
+  title: "Petite Forêt - Garderie d'enfants",
   description: "Un environnement sûr et joyeux pour votre enfant.",
 };
 
