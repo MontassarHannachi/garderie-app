@@ -1,14 +1,25 @@
-﻿export default function Hero() {
+﻿"use client";
+import { useEffect, useState } from "react";
+
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
+export default function Hero() {
+  const [garderie, setGarderie] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API}/api/garderie`)
+      .then((r) => r.json())
+      .then(setGarderie)
+      .catch(() => setGarderie(null));
+  }, []);
+
   return (
     <header id="accueil" className="py-5">
       <div className="container">
         <div className="row align-items-center g-4">
           <div className="col-md-6">
-            <h1 className="display-5 fw-bold">Un environnement sûr et joyeux pour votre enfant</h1>
-            <p className="lead">
-              Une équipe bienveillante, des activités éducatives et un cadre
-              chaleureux pour accompagner chaque enfant dans son éveil.
-            </p>
+            <h1 className="display-5 fw-bold">{garderie?.slogan ?? "Bienvenue"}</h1>
+            <p className="lead">{garderie?.description ?? ""}</p>
             <a href="#contact" className="btn btn-warning btn-lg">Inscrire mon enfant</a>
           </div>
           <div className="col-md-6">
