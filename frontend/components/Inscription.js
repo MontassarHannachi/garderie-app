@@ -80,7 +80,7 @@ export default function Inscription() {
         <div className="modal-dialog modal-dialog-centered modal-lg" onClick={(e) => e.stopPropagation()}>
           <div className="modal-content modal-sun">
             <div className="modal-header border-0 pb-0">
-              <h4 className="modal-title">🌞 Inscrire mon enfant</h4>
+              <h4 className="modal-title">🌲 Inscrire mon enfant</h4>
               <button type="button" className="btn-close" onClick={fermer} aria-label="Fermer"></button>
             </div>
 

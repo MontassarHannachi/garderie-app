@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-glass sticky-top py-3">
       <div className="container">
         <a className="navbar-brand d-flex align-items-center fw-bold fs-4" href="#accueil">
-          <span className="me-2">🌞</span>
+          <span className="me-2">🌲</span>
           {garderie?.nom ?? "Garderie"}
         </a>
         <button className="navbar-toggler border-0" type="button"

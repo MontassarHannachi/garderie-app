@@ -1,6 +1,6 @@
-﻿# 🌞 Garderie App
+﻿# 🌲 Garderie App
 
-Application web pour la garderie d'enfants « Les Petits Soleils » : une landing page
+Application web pour la garderie d'enfants « Petite Forêt » : une landing page
 moderne et responsive (Next.js + Bootstrap 5), alimentée dynamiquement par une API REST
 Node.js/Express, avec un formulaire d'inscription pour les parents.
 
@@ -107,7 +107,7 @@ URL de base : `http://localhost:5000`
 
 ```json
 {
-  "nom": "Les Petits Soleils",
+  "nom": "Petite Forêt",
   "slogan": "Un environnement sûr et joyeux pour votre enfant",
   "description": "Une équipe bienveillante et des activités éducatives pour chaque enfant.",
   "adresse": "Tozeur, Tunisie",
@@ -184,6 +184,7 @@ automatiquement et exclu du dépôt Git (`.gitignore`), car il contient des donn
 | `feature/modern-design` | Refonte moderne du design, sections Activités et Contact |
 | `feature/inscription` | Formulaire d'inscription et route POST /api/inscriptions |
 | `docs/readme-update` | Mise à jour du README |
+| `feature/rename-petite-foret` | Renommage de la garderie en « Petite Forêt » |
 
 Chaque branche a été fusionnée dans `main` avec un commit de fusion (`--no-ff`).
 

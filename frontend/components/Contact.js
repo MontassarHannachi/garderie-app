@@ -22,7 +22,7 @@ export default function Contact() {
       <div className="container py-4">
         <div className="row g-4">
           <div className="col-md-4">
-            <h4 className="mb-3">🌞 {g?.nom ?? "Garderie"}</h4>
+            <h4 className="mb-3">🌲 {g?.nom ?? "Garderie"}</h4>
             <p className="muted">{g?.description ?? ""}</p>
           </div>
           <div className="col-md-4">

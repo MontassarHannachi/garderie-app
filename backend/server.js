@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const garderie = {
-  nom: "Les Petits Soleils",
+  nom: "Petite Forêt",
   slogan: "Un environnement sûr et joyeux pour votre enfant",
   description: "Une équipe bienveillante et des activités éducatives pour chaque enfant.",
   adresse: "Tozeur, Tunisie",
