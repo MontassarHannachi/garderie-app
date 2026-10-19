@@ -1,19 +1,19 @@
 ﻿# 🌞 Garderie App
 
 Application web pour la garderie d'enfants « Les Petits Soleils » : une landing page
-responsive (Next.js + Bootstrap 5) alimentée dynamiquement par une API REST
-Node.js/Express.
+moderne et responsive (Next.js + Bootstrap 5), alimentée dynamiquement par une API REST
+Node.js/Express, avec un formulaire d'inscription pour les parents.
 
 ## Présentation
 
 Le projet comporte deux parties :
 
-- un **frontend** Next.js qui affiche une landing page composée de trois sections
-  (Navbar, Hero, Services) et la liste des activités ;
-- un **backend** Express qui expose trois routes REST renvoyant des données JSON.
+- un **frontend** Next.js : Navbar, Hero, Services, Activités, Contact et une fenêtre
+  d'inscription ;
+- un **backend** Express qui expose quatre routes REST (trois en lecture, une en écriture).
 
-Le développement a été réalisé avec un workflow Git par branches : chaque étape a
-été faite dans une branche dédiée, suivie d'un commit et d'une fusion dans `main`.
+Le développement a été réalisé avec un workflow Git par branches : chaque étape a été
+faite dans une branche dédiée, suivie d'un commit et d'une fusion dans `main`.
 
 ## Technologies utilisées
 
@@ -28,17 +28,24 @@ Le développement a été réalisé avec un workflow Git par branches : chaque �
 ```
 garderie-app/
 ├── backend/
-│   ├── server.js            # API Express (3 routes)
+│   ├── server.js              # API Express (4 routes)
 │   └── package.json
 ├── frontend/
 │   ├── app/
-│   │   ├── layout.js        # Layout global + import de Bootstrap
-│   │   ├── BootstrapClient.js
-│   │   └── page.js          # Page principale (assemble les composants)
+│   │   ├── layout.js          # Layout global, police et styles
+│   │   ├── globals.css        # Design (couleurs, cartes, boutons)
+│   │   ├── BootstrapClient.js # Chargement du JS Bootstrap (menu mobile)
+│   │   └── page.js            # Page principale (assemble les composants)
 │   ├── components/
 │   │   ├── Navbar.js
 │   │   ├── Hero.js
-│   │   └── Services.js
+│   │   ├── Services.js
+│   │   ├── Activites.js
+│   │   ├── Contact.js
+│   │   └── Inscription.js     # Formulaire d'inscription (fenêtre modale)
+│   ├── lib/
+│   │   ├── api.js             # URL de l'API
+│   │   └── inscription.js     # Ouverture de la fenêtre d'inscription
 │   └── package.json
 ├── .gitignore
 └── README.md
@@ -94,6 +101,7 @@ URL de base : `http://localhost:5000`
 | GET | `/api/garderie` | Informations générales de la garderie |
 | GET | `/api/services` | Liste des services proposés |
 | GET | `/api/activites` | Liste des activités pour les enfants |
+| POST | `/api/inscriptions` | Enregistre une demande d'inscription |
 
 ### GET /api/garderie
 
@@ -103,8 +111,8 @@ URL de base : `http://localhost:5000`
   "slogan": "Un environnement sûr et joyeux pour votre enfant",
   "description": "Une équipe bienveillante et des activités éducatives pour chaque enfant.",
   "adresse": "Tozeur, Tunisie",
-  "telephone": "+216 00 000 000",
-  "email": "contact@petitssoleils.tn",
+  "telephone": "+21625580496",
+  "email": "montassarmh04@gmail.com",
   "horaires": "Lundi - Vendredi : 7h30 - 18h00"
 }
 ```
@@ -130,6 +138,40 @@ URL de base : `http://localhost:5000`
 
 (Extrait : la route renvoie quatre activités.)
 
+### POST /api/inscriptions
+
+Corps de la requête (JSON) :
+
+```json
+{
+  "parentNom": "Test Parent",
+  "telephone": "+21625580496",
+  "email": "parent@example.com",
+  "enfantNom": "Yassine",
+  "enfantAge": 4,
+  "service": "Garde à la journée",
+  "message": "Bonjour"
+}
+```
+
+Champs obligatoires : `parentNom`, `telephone`, `enfantNom`, `enfantAge` (entre 0 et 12).
+Les champs `email`, `service` et `message` sont facultatifs.
+
+Réponse en cas de succès (`201`) :
+
+```json
+{ "message": "Inscription enregistrée", "id": 1760000000000 }
+```
+
+Réponse en cas de données invalides (`400`) :
+
+```json
+{ "erreurs": ["L'âge de l'enfant doit être compris entre 0 et 12 ans."] }
+```
+
+Les inscriptions sont enregistrées dans `backend/inscriptions.json`. Ce fichier est créé
+automatiquement et exclu du dépôt Git (`.gitignore`), car il contient des données personnelles.
+
 ## Workflow Git
 
 | Branche | Contenu |
@@ -138,7 +180,10 @@ URL de base : `http://localhost:5000`
 | `feature/components` | Extraction de Navbar, Hero et Services en composants |
 | `feature/backend` | API REST Express |
 | `feature/api-integration` | Connexion du frontend aux API |
-| `docs/readme` | Rédaction de ce README |
+| `docs/readme` | Première version de ce README |
+| `feature/modern-design` | Refonte moderne du design, sections Activités et Contact |
+| `feature/inscription` | Formulaire d'inscription et route POST /api/inscriptions |
+| `docs/readme-update` | Mise à jour du README |
 
 Chaque branche a été fusionnée dans `main` avec un commit de fusion (`--no-ff`).
 
