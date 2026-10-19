@@ -1,4 +1,6 @@
 ﻿const express = require("express");
+const fs = require("fs");
+const path = require("path");
 const cors = require("cors");
 
 const app = express();
@@ -33,5 +35,51 @@ const activites = [
 app.get("/api/garderie", (req, res) => res.json(garderie));
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/activites", (req, res) => res.json(activites));
+
+// ---- Inscriptions ----
+const INSCRIPTIONS_FILE = path.join(__dirname, "inscriptions.json");
+let inscriptions = [];
+try {
+  inscriptions = JSON.parse(fs.readFileSync(INSCRIPTIONS_FILE, "utf8"));
+} catch {
+  inscriptions = [];
+}
+
+const txt = (v) => String(v ?? "").trim();
+
+app.post("/api/inscriptions", (req, res) => {
+  const b = req.body || {};
+  const parentNom = txt(b.parentNom);
+  const telephone = txt(b.telephone);
+  const email = txt(b.email);
+  const enfantNom = txt(b.enfantNom);
+  const enfantAge = Number(b.enfantAge);
+  const erreurs = [];
+
+  if (parentNom.length < 2) erreurs.push("Le nom du parent est obligatoire.");
+  if (!/^[+0-9\s]{8,16}$/.test(telephone)) erreurs.push("Le numéro de téléphone est invalide.");
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) erreurs.push("L'adresse email est invalide.");
+  if (enfantNom.length < 2) erreurs.push("Le nom de l'enfant est obligatoire.");
+  if (b.enfantAge === "" || !Number.isFinite(enfantAge) || enfantAge < 0 || enfantAge > 12) {
+    erreurs.push("L'âge de l'enfant doit être compris entre 0 et 12 ans.");
+  }
+  if (erreurs.length) return res.status(400).json({ erreurs });
+
+  const inscription = {
+    id: Date.now(),
+    parentNom,
+    telephone,
+    email,
+    enfantNom,
+    enfantAge,
+    service: txt(b.service),
+    message: txt(b.message),
+    date: new Date().toISOString(),
+  };
+  inscriptions.push(inscription);
+  fs.writeFileSync(INSCRIPTIONS_FILE, JSON.stringify(inscriptions, null, 2));
+
+  res.status(201).json({ message: "Inscription enregistrée", id: inscription.id });
+});
 
 app.listen(PORT, () => console.log(`API démarrée sur http://localhost:${PORT}`));

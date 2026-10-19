@@ -1,6 +1,7 @@
 ﻿"use client";
 import { useEffect, useState } from "react";
 import { API } from "@/lib/api";
+import { ouvrirInscription } from "@/lib/inscription";
 
 export default function Navbar() {
   const [garderie, setGarderie] = useState(null);
@@ -30,7 +31,7 @@ export default function Navbar() {
             <li className="nav-item"><a className="nav-link" href="#activites">Activités</a></li>
             <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
             <li className="nav-item ms-lg-2">
-              <a className="btn btn-sun btn-sun-sm" href="#contact">Inscription</a>
+              <button className="btn btn-sun btn-sun-sm" type="button" onClick={ouvrirInscription}>Inscription</button>
             </li>
           </ul>
         </div>
