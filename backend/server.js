@@ -12,8 +12,8 @@ const garderie = {
   slogan: "Un environnement sûr et joyeux pour votre enfant",
   description: "Une équipe bienveillante et des activités éducatives pour chaque enfant.",
   adresse: "Tozeur, Tunisie",
-  telephone: "+216 00 000 000",
-  email: "contact@petitssoleils.tn",
+  telephone: "+21625580496",
+  email: "montassarmh04@gmail.com",
   horaires: "Lundi - Vendredi : 7h30 - 18h00",
 };
 
