@@ -1,64 +1,49 @@
 ﻿"use client";
 import { useEffect, useState } from "react";
+import { API } from "@/lib/api";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const FONDS = ["#fff0d9", "#d9f5f2", "#e0f4fd"];
 
 export default function Services() {
   const [services, setServices] = useState([]);
-  const [activites, setActivites] = useState([]);
   const [erreur, setErreur] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      fetch(`${API}/api/services`).then((r) => r.json()),
-      fetch(`${API}/api/activites`).then((r) => r.json()),
-    ])
-      .then(([s, a]) => {
-        setServices(s);
-        setActivites(a);
-      })
+    fetch(`${API}/api/services`)
+      .then((r) => r.json())
+      .then(setServices)
       .catch(() => setErreur(true));
   }, []);
 
-  if (erreur) {
-    return (
-      <section id="services" className="py-5 bg-light">
-        <p className="text-center text-danger mb-0">
-          Impossible de charger les données. Vérifiez que l'API est démarrée.
-        </p>
-      </section>
-    );
-  }
-
   return (
-    <section id="services" className="py-5 bg-light">
-      <div className="container">
-        <h2 className="text-center mb-4">Nos services</h2>
+    <section id="services" className="py-5">
+      <div className="container py-4">
+        <div className="text-center mb-5">
+          <h2 className="section-title display-6">Nos services</h2>
+          <p className="section-sub">Tout ce qu'il faut pour que votre enfant s'épanouisse.</p>
+        </div>
+
+        {erreur && (
+          <p className="text-center text-danger">
+            Impossible de charger les services. Vérifiez que l'API est démarrée.
+          </p>
+        )}
+
         <div className="row g-4">
-          {services.map((s) => (
+          {services.map((s, i) => (
             <div className="col-12 col-md-4" key={s.id}>
-              <div className="card h-100 shadow-sm text-center">
+              <div className="card service-card h-100 text-center">
                 <div className="card-body">
-                  <div className="fs-1">{s.icone}</div>
+                  <div className="icon-circle" style={{ background: FONDS[i % FONDS.length] }}>
+                    {s.icone}
+                  </div>
                   <h5 className="card-title">{s.titre}</h5>
-                  <p className="card-text">{s.description}</p>
+                  <p className="card-text text-secondary">{s.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <h3 className="text-center mt-5 mb-3">Nos activités</h3>
-        <ul className="list-group">
-          {activites.map((a) => (
-            <li key={a.id} className="list-group-item d-flex justify-content-between align-items-center">
-              <span>
-                {a.nom} <small className="text-muted">({a.ageMin}-{a.ageMax} ans)</small>
-              </span>
-              <span className="badge text-bg-warning">{a.horaire}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );
