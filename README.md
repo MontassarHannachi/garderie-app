@@ -185,6 +185,7 @@ automatiquement et exclu du dépôt Git (`.gitignore`), car il contient des donn
 | `feature/inscription` | Formulaire d'inscription et route POST /api/inscriptions |
 | `docs/readme-update` | Mise à jour du README |
 | `feature/rename-petite-foret` | Renommage de la garderie en « Petite Forêt » |
+| `feature/theme-foret` | Nouveau thème de couleurs (vert forêt) |
 
 Chaque branche a été fusionnée dans `main` avec un commit de fusion (`--no-ff`).
 

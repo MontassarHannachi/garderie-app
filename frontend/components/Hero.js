@@ -35,8 +35,8 @@ export default function Hero() {
           </div>
           <div className="col-lg-6">
             <img
-              src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900"
-              alt="Enfants qui jouent"
+              src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=900&auto=format&fit=crop&q=80"
+              alt="Enfants qui jouent au ballon sur l'herbe"
               className="img-fluid hero-img" />
           </div>
         </div>

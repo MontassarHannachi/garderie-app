@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { API } from "@/lib/api";
 
-const COULEURS = ["#ff9f1c", "#2ec4b6", "#4cc9f0", "#ff6b6b"];
+const COULEURS = ["#3a9d5d", "#8bc34a", "#6cb59b", "#c97b3d"];
 
 export default function Activites() {
   const [activites, setActivites] = useState([]);
