@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { API } from "@/lib/api";
 
-const FONDS = ["#fff0d9", "#d9f5f2", "#e0f4fd"];
+const FONDS = ["#e3f3dc", "#e8f1d4", "#dcefe6"];
 
 export default function Services() {
   const [services, setServices] = useState([]);

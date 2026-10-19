@@ -1,11 +1,11 @@
 ﻿:root {
-  --sun: #ff9f1c;
-  --sun-dark: #e88a00;
-  --mint: #2ec4b6;
-  --sky: #4cc9f0;
-  --coral: #ff6b6b;
-  --ink: #1f2a44;
-  --cream: #fff9f0;
+  --sun: #3a9d5d;
+  --sun-dark: #2a7d46;
+  --mint: #8bc34a;
+  --sky: #6cb59b;
+  --coral: #c97b3d;
+  --ink: #1d3b2a;
+  --cream: #f5f8ee;
 }
 
 html { scroll-behavior: smooth; }
@@ -20,9 +20,9 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
 
 /* Navbar */
 .navbar-glass {
-  background: rgba(255, 249, 240, 0.85);
+  background: rgba(245, 248, 238, 0.85);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(31, 42, 68, 0.06);
+  border-bottom: 1px solid rgba(29, 59, 42, 0.06);
 }
 .navbar-glass .nav-link { font-weight: 600; color: var(--ink); }
 .navbar-glass .nav-link:hover { color: var(--sun-dark); }
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   border-radius: 50rem;
   padding: 0.8rem 2rem;
   font-weight: 700;
-  box-shadow: 0 10px 25px rgba(255, 159, 28, 0.35);
+  box-shadow: 0 10px 25px rgba(58, 157, 93, 0.35);
   transition: all 0.2s ease;
 }
 .btn-sun:hover { background: var(--sun-dark); color: #fff; transform: translateY(-2px); }
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   position: relative;
   overflow: hidden;
   padding: 5rem 0;
-  background: linear-gradient(135deg, #fff3d6 0%, #ffe8cc 50%, #d8f5f1 100%);
+  background: linear-gradient(135deg, #e6f4e1 0%, #d4ecd0 50%, #d8f0e8 100%);
 }
 .hero::before, .hero::after {
   content: "";
@@ -63,8 +63,8 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   border-radius: 50%;
   z-index: 0;
 }
-.hero::before { width: 380px; height: 380px; background: rgba(255, 159, 28, 0.18); top: -140px; right: -100px; }
-.hero::after { width: 260px; height: 260px; background: rgba(46, 196, 182, 0.18); bottom: -100px; left: -80px; }
+.hero::before { width: 380px; height: 380px; background: rgba(58, 157, 93, 0.18); top: -140px; right: -100px; }
+.hero::after { width: 260px; height: 260px; background: rgba(139, 195, 74, 0.18); bottom: -100px; left: -80px; }
 .hero .container { position: relative; z-index: 1; }
 .text-gradient {
   background: linear-gradient(90deg, var(--sun), var(--coral));
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
 }
 .hero-img {
   border-radius: 2rem;
-  box-shadow: 0 25px 50px rgba(31, 42, 68, 0.2);
+  box-shadow: 0 25px 50px rgba(29, 59, 42, 0.2);
   transform: rotate(2deg);
   transition: transform 0.3s ease;
 }
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   padding: 0.4rem 1rem;
   font-weight: 700;
   font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(31, 42, 68, 0.08);
+  box-shadow: 0 4px 12px rgba(29, 59, 42, 0.08);
   margin: 0 0.5rem 0.5rem 0;
 }
 
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   border-radius: 6px;
   background: var(--sun);
 }
-.section-sub { color: #6b7590; }
+.section-sub { color: #5f7a69; }
 
 /* Cartes services */
 .service-card {
@@ -109,10 +109,10 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   border-radius: 1.5rem;
   padding: 1rem;
   background: #fff;
-  box-shadow: 0 8px 24px rgba(31, 42, 68, 0.07);
+  box-shadow: 0 8px 24px rgba(29, 59, 42, 0.07);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.service-card:hover { transform: translateY(-8px); box-shadow: 0 18px 36px rgba(31, 42, 68, 0.14); }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 18px 36px rgba(29, 59, 42, 0.14); }
 .icon-circle {
   width: 76px;
   height: 76px;
@@ -129,13 +129,13 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
   border-radius: 1.2rem;
   padding: 1.2rem 1.4rem;
   border-left: 8px solid var(--sun);
-  box-shadow: 0 6px 18px rgba(31, 42, 68, 0.06);
+  box-shadow: 0 6px 18px rgba(29, 59, 42, 0.06);
   transition: transform 0.2s ease;
   height: 100%;
 }
 .activity-card:hover { transform: translateX(6px); }
 .badge-soft {
-  background: rgba(255, 159, 28, 0.15);
+  background: rgba(58, 157, 93, 0.15);
   color: var(--sun-dark);
   border-radius: 50rem;
   padding: 0.35rem 0.9rem;
@@ -145,14 +145,14 @@ h1, h2, h3, h4, h5 { font-weight: 800; }
 
 /* Contact */
 .footer-dark { background: var(--ink); color: #fff; }
-.footer-dark a { color: #ffd99a; text-decoration: none; }
+.footer-dark a { color: #b9e4b0; text-decoration: none; }
 .footer-dark a:hover { text-decoration: underline; }
-.footer-dark .muted { color: #aab3c9; }
+.footer-dark .muted { color: #a9c4b2; }
 
 /* Modale d'inscription */
 .modal-sun { border: 0; border-radius: 1.5rem; }
 .modal-sun .form-control, .modal-sun .form-select { border-radius: 0.8rem; padding: 0.6rem 0.9rem; }
 .modal-sun .form-control:focus, .modal-sun .form-select:focus {
   border-color: var(--sun);
-  box-shadow: 0 0 0 0.25rem rgba(255, 159, 28, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(58, 157, 93, 0.25);
 }
